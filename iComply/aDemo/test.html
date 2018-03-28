@@ -1,0 +1,370 @@
+<apex:page sidebar="false" showheader="false" standardStylesheets="false" docType="html-5.0"
+           standardController="Recipe__c" recordSetVar="recipes" applyBodyTag="false" applyHtmlTag="false">
+
+    <html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+
+
+        <title>Tasks - Authorized Signer</title>
+        <!-- Bootstrap core CSS -->
+        <apex:stylesheet value="{!URLFOR($Resource.bootstrap_334, 'dist/css/bootstrap.min.css')}"/>
+
+        <!-- <link href="dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+        <!-- Custom styles for this template -->
+        <apex:stylesheet value="{!URLFOR($Resource.icomply_css, 'css/navbar.css')}"/>
+
+        <apex:stylesheet value="{!URLFOR($Resource.icomply_css, 'css/icomply.css')}"/>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script type="text/javascript">
+            var __sfdcSessionId = '{!GETSESSIONID()}';
+        </script>
+        <script src="../../soap/ajax/30.0/connection.js" type="text/javascript"></script>
+
+    </head>
+
+    <body>
+
+    <div class="container">
+
+        <!-- Static navbar -->
+        <div class="page-header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false">Menu<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="active"><a href="authorizedsignertasks">Authorized Signer Tasks</a></li>
+                            <li><a href="studenttasks">Student Tasks</a></li>
+                            <li class="divider"></li>
+                            <li><a href="home">Home Screen</a></li>
+                            <li><a href="comingsoon">Print Records</a></li>
+                            <li class="divider"></li>
+                            <li><a href="comingsoon">Library</a></li>
+                            <li><a href="comingsoon">Help Page</a></li>
+                            <li><a href="comingsoon">About Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <img src="{!URLFOR($Resource.icomply_imgs, 'img/purple-check__50.png')}" alt="Authorized Signer Tasks Icon"
+                 class="img-circle img-responsive pull-left icon"/>
+
+            <h3 class="text-muted" style="padding-top: 15px;">&nbsp;Authorized Signer Tasks</h3>
+        </div>
+        <!-- Main component for a primary marketing message or call to action -->
+        <div class="jumbotron text-center back-color">
+            <p>Once you complete all of the Authorized Signer tasks below,
+                <br/>your student(s) will be able to complete theirs.</p>
+            <br/><br/>
+
+            <div class="btn-group-vertical text-left" role="group" aria-label="..." id="btn_group">
+
+                <!-- //\\ Dynamically fill in !! //\\ -->
+
+            </div>
+        </div>
+
+
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!-- Modal - Display the Content -->
+        <div class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="pdfModal" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title" id="header_{{task_ID}}">{{task_ID}}</h3>
+                    </div>
+                    <div class="modal-body">
+                        <iframe width="100%"></iframe>
+                        <br/>
+                        <span class="text-muted pull-right">
+                        	<em>By clicking the ACCEPT button below, you agree that you read the document.</em>
+                        </span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" id="btn_Accept" data-dismiss="modal"
+                                data-caller="">Accept
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <!--  -->
+        <!--  -->
+
+
+        <!-- Modal - Congratulations Page -->
+        <div class="modal fade" id="modal_Congratulations" tabindex="-1" role="dialog"
+             aria-labelledby="label_SchoolHandbook" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="label_Congratulations">Congratulat<span class="congrats">i</span>ons
+                        </h4>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p>You have successfully activated your account and completed Your Tasks as the Authorized
+                            Signer. A
+                            confirmation has been sent to your email.</p>
+
+                        <br/>
+                        <h4 class="congrats">The next step is to have your student(s) complete their tasks</h4>
+                        <ol class="text-left">
+                            <li>All student(s) have three days to complete their Student Tasks.</li>
+                            <li>They need to log into the same account using your email address and the password you
+                                chose.
+                            </li>
+                            <li>Once in the account they will click on the Student Task Icon
+                                <img src="{!URLFOR($Resource.icomply_imgs, 'img/green-check__30.png')}"
+                                     alt="Student Tasks Icon"/>.
+
+                            </li>
+                            <li>Then they will enter their Student ID.</li>
+
+                        </ol>
+
+                        <br/>
+                        <h4 class="congrats">$9.95 Internet Access</h4>
+
+                        <p>With Cox Communications, if your student(s) participate in the Free and Reduced Lunch
+                            Program, your household is
+                            eligible for $9.95 a month Home Internet Access.
+                            <br/>No Deposit, No Credit Check, and Free Installation!
+                        </p>
+                        <a class="btn btn-primary" href="http://cox.connect2compete.org/welcome.aspx" target="_blank"
+                           aria-expanded="false" aria-controls="Connect2Compete">
+                            Connect2Compete
+                        </a>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="home" id="btn_CongratsNext" class="btn btn-default">Next</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="footer">
+            <p class="pull-right text-muted">&copy; iComplyK12.org 2015</p>
+        </footer>
+
+    </div>
+    <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="{!URLFOR($Resource.bootstrap_334, 'dist/js/bootstrap.min.js')}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{!URLFOR($Resource.bootstrap_334, 'dist/js/ie10-viewport-bug-workaround.js')}"></script>
+
+    <script type="text/javascript">
+        $j = jQuery.noConflict();
+        $j(document).ready(function ($) {
+
+            $('.modal').on('hidden.bs.modal', function (e) {
+                //Clean up the reusable modal
+                $(this).find('iframe').attr('src', "");
+
+
+                //Decide if popover should be shown
+                $(".check-popover").each(function () {
+                    if ($(this).data("popover") !== 'unsigned') {
+                        $(this).popover("show");
+                    }
+                });
+
+                //Decide to show the graduation page    
+                if (0 === $(".glyphicon-unchecked").length) {
+                    setTimeout(function () {
+                        $('#modal_Congratulations').modal('show');
+                    }, 2000)
+                }
+
+            });
+
+            $('.modal').on('show.bs.modal', function (e) {
+                $(".check-popover").popover("hide");
+            });
+
+            function taskCompleted(checkboxId, taskbuttonId) {
+                $(checkboxId).removeClass('glyphicon-unchecked');
+                $(checkboxId).addClass('glyphicon-check');
+
+                if ($(taskbuttonId).data("popover") === 'unsigned') {
+                    var newDate = new Date();
+                    var prettyDate = (newDate).toLocaleString();
+                    $(taskbuttonId).data("popover", ' <small><em>signed ' + prettyDate + '</em></small>');
+
+
+                    var sobj = new sforce.SObject("Compliance_Activity__c");
+                    sobj["Id"] = taskbuttonId.attr("id")
+
+                    var isoDate = newDate.toISOString();
+
+
+                    var offset = (new Date().getTimezoneOffset() / 60) * -1;
+                    if (offset < 10 && offset > 0) {
+                        offset = "0" + offset;
+                    } else if (offset > -10 && offset < 0) {
+                        offset = "-0" + (offset * -1);
+                    }
+                    isoDate.replace("Z", offset);
+
+
+                    sobj["Signed_Time__c"] = isoDate;
+
+                    sobj["Signed__c"] = "true";
+                    var result = sforce.connection.update([sobj]);
+                    if (result[0].getBoolean("success") == false) {
+                        throw "update failed"
+                    }
+                    ;
+                    console.log("account updated: " + result[0]);
+                }
+            }
+
+
+            //
+            //
+            //FIGURE OUT HOW TO USE THIS FOR PDF'S
+            //Modal's button
+            $("#btn_Accept").click(function () {
+                var taskbutton = $($(this).data('caller')); //e.g. itself (the button), where popover will be
+                var checkbox = taskbutton.find(".glyphicon");
+                taskCompleted(checkbox, taskbutton);
+            });
+
+            //Task's button
+            $('#pdfModal').on('shown.bs.modal', function (e, relatedTarget) {
+                var taskName = $(e.relatedTarget).find(".task-name").text().trim();
+                $('#pdfModal .modal-title').text(taskName);
+
+                var contentSRC = $(e.relatedTarget).attr("data-theContent");
+                $('#pdfModal iframe').attr('src', contentSRC);
+                $('#pdfModal iframe').attr('height', ($('#pdfModal .modal-body')[0].scrollHeight - 50) + 'px');
+
+                //debugger
+                $('#btn_Accept').data('caller', "#" + e.relatedTarget.id);
+            });
+
+
+            /************************
+             * Handle Salesforce I/O *
+             ************************/
+            (function ($) {
+                $.QueryString = (function (a) {
+                    if (a == "") return {};
+                    var b = {};
+                    for (var i = 0; i < a.length; ++i) {
+                        var p = a[i].split('=');
+                        if (p.length != 2) continue;
+                        b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+                    }
+                    return b;
+                })(window.location.search.substr(1).split('&'))
+            })(jQuery);
+
+            var asignerID = $.QueryString["id"];
+            var asignerEmail = $.QueryString["email"];
+            var contentLocation = "{!URLFOR($Resource.icomply_pdfs, '/')}";
+
+            var allTasks = [];
+            //function contains all code to execute after page is rendered
+            var callback = {
+                //call layoutResult if the request is successful
+                onSuccess: querySuccess,
+                //call queryFailed if the api request fails
+                onFailure: queryFailed
+            };
+
+            function querySuccess(result) {
+                // console.log(result);
+                if (result.size > 0) {
+                    var records = result.getArray('records');
+                    // console.log(records);
+                    var keys = Object.keys(records[0]);
+                    // console.log(keys)
+                    for (var i = 0; i < records.length; i++) {
+                        var sobj = new sforce.SObject("Compliance_Activity__c");
+                        for (var j = 0; j < keys.length; j++) {
+                            sobj[keys[j]] = records[i][keys[j]];
+                        }
+                        // console.log(sobj);
+                        allTasks[sobj["Id"]] = records[i];
+
+
+                        var newButton = '  <button id="' + sobj["Id"] + '" type="button" class="btn btn-default btn-lg check-popover" data-toggle="modal"'
+                        newButton += '        data-target="#pdfModal"';
+                        if (sobj["Signed__c"] === "false") {
+                            newButton += ' data-popover="unsigned" ';
+                        } else {
+                            newButton += ' data-popover="<small><em>signed ' + sobj["Signed_Time__c"] + '</em></small>" ';
+                        }
+                        newButton += '        data-theContent="' + contentLocation + sobj["School_Task__r"]["Content_Link__c"] + '"> ';
+                        newButton += '    <span class="glyphicon glyphicon-unchecked pull-left" aria-hidden="true" /> ';
+                        newButton += '    <span class="pull-left task-name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + sobj["School_Task__r"]["Task_Name__c"] + '</span> ';
+                        newButton += '</button>';
+
+                        $("#btn_group").append(newButton);
+                    }
+                    // console.log(allTasks);
+
+                    $(".check-popover").popover({
+                        html: true,
+                        placement: "right",
+                        container: "body",
+                        trigger: "manual",
+                        content: function () {
+                            return $(this).data("popover");
+                        }
+                    });
+                }
+            }
+
+            function queryFailed(error) {
+                console.log(error);
+                console.log("Query Failed! An error has occurred: " + error);
+            }
+
+            //Okay now do something!!
+            queryString = "SELECT Id, Name, School_Task__r.Content_Link__c, School_Task__r.Grade_Number__c, School_Task__r.Icon_Link__c, School_Task__r.Task_Name__c, School_Task__r.Task_Type__c, Signed_Time__c, Signed__c FROM Compliance_Activity__c WHERE WhoId__c = '" + asignerID + "'";
+
+            sforce.connection.query(queryString, callback);
+
+
+            //First time load the tasks for the user
+            //Second+ time load existing tasks and check for new tasks. 
+            //  -With user email, look up ID.  
+            //  -With ID, check the WhoID on the Compliance_Activity__c
+            //  -With Compliance Activity, look up associated School_Task__c
+
+
+        });
+    </script>
+
+    </body>
+    </html>
+
+</apex:page>

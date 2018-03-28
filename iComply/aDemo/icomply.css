@@ -1,0 +1,73 @@
+.modal-dialog,
+.modal-content {
+    /* 80% of window height */
+    height: 94%;
+}
+
+.modal-body {
+    /* 100% = dialog height, 120px = header + footer */
+    max-height: calc(100% - 120px);
+    height: 90%;
+    overflow-y: scroll;
+}
+
+.modal-body-sm {
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+    height: 40%;
+    overflow-y: scroll;
+}
+
+.back-color {
+    background-color: #ffffff;
+}
+
+.congrats {
+    /*color: #006dcc;*/
+    color: #377bb5
+}
+
+.space-above{
+    padding-top: 20px;
+}
+
+.space-above-big{
+    padding-top: 50px;
+}
+
+.space-sides-big {
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+
+
+.leftspace {
+    padding-left: 5px;
+}
+
+.icon {
+    padding-top: 5px;
+}
+
+.vidcheck {
+    padding-right: 200px;
+}
+
+.vidpic {
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}

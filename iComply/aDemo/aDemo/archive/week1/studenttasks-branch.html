@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Tasks - Authorized Signer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="navbar.css" rel="stylesheet">
+    <link href="icomply.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Static navbar -->
+    <div class="page-header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-expanded="false">Menu<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="authorizedsigner.html">Authorized Signer Tasks</a></li>
+                        <li class="active"><a href="#">My Tasks</a></li>
+                        <li class="divider"></li>
+                        <li><a href="home.html">Home Screen</a></li>
+                        <li><a href="comingsoon.html">Print Records</a></li>
+                        <li class="divider"></li>
+                        <li><a href="comingsoon.html">Library</a></li>
+                        <li><a href="comingsoon.html">Help Page</a></li>
+                        <li><a href="comingsoon.html">About Us</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <h3 class="text-muted"><img src="img/icon_studenttasks-20.png" alt="Student Tasks Icon"
+                                    class="img-circle img-responsive pull-left icon">&nbsp;Your Tasks</h3>
+    </div>
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron text-center" style="background-color: #ffffff">
+        <p>Please complete these tasks before your student(s) will be allowed to complete theirs.</p><br/><br/>
+
+        <div class="btn-group-vertical text-left" role="group" aria-label="..." id="btn_group">
+            <button type="button" class="btn btn-default btn-lg check-popover" data-toggle="modal"
+                    data-target="#modal_TermsOfAcceptance" data-popover="" id="tskbtn_TermsOfAcceptance">
+                <span class="glyphicon glyphicon-unchecked pull-left" aria-hidden="true" id="check_TermsOfAcceptance"/>
+                Terms of Acceptance
+            </button>
+            <button type="button" class="btn btn-default btn-lg check-popover" data-toggle="modal"
+                    data-target="#modal_AcceptableUsePolicy" data-popover="" id="tskbtn_AcceptableUsePolicy">
+                <span class="glyphicon glyphicon-unchecked pull-left" aria-hidden="true"
+                      id="check_AcceptableUsePolicy"/> Acceptable Use Policy (AUP)
+            </button>
+            <button type="button" class="btn btn-default btn-lg check-popover" data-toggle="modal"
+                    data-target="#modal_InternetUsage" data-popover="" id="tskbtn_InternetUsePolicy">
+                <span class="glyphicon glyphicon-unchecked pull-left" aria-hidden="true" id="check_InternetUsePolicy"/>
+                Internet Use Policy
+            </button>
+            <button type="button" class="btn btn-default btn-lg check-popover" data-toggle="modal"
+                    data-target="#modal_SchoolHandbook" data-popover="" id="tskbtn_SchoolHandbook">
+                <span class="glyphicon glyphicon-unchecked pull-left" aria-hidden="true" id="check_SchoolHandbook"/>
+                School Handbook
+            </button>
+
+        </div>
+        <br/><br/>
+        <div class="row vertical-align"> <!--
+                    ^--  Additional class -->
+            <div class="col-xs-4">
+                <a href="#" class="btn btn-default" data-toggle="modal" data-target="#videoModal" data-theVideo="https://www.youtube.com/embed/EvhIdB_8WXE">
+                    <h4 class="text-left"><span class="glyphicon glyphicon-unchecked" aria-hidden="true" id="check_vidBullying"/></h4>
+                    <img src="img/vidpic_McgruffBullying-square200.png" class="img-responsive vcenter vidpic"
+                         alt="McGruff Bullying Video">
+                    <h2 class="text-center">Bullying</h2>
+                </a>
+                <br /><br /><span class="text-muted text-center">Learn to stop bullying.</span>
+
+            </div>
+            <div class="col-xs-4">
+                <a href="#" class="btn btn-default" data-toggle="modal" data-target="#videoModal" data-theVideo="https://www.youtube.com/embed/P4tKS1tpNWc">
+                    <h4 class="text-left"><span class="glyphicon glyphicon-unchecked" aria-hidden="true" id="check_vidInternetSafety"/></h4>
+                    <img src="img/vidpic_InternetSafety-square200.png" class="img-responsive vcenter vidpic"
+                         alt="Student Signer Tasks">
+                    <h2>Internet Safety</h2>
+                </a>
+                <br /><br /><span class="text-muted text-center">Learn how to be safe online.</span>
+            </div>
+            <div class="col-xs-4">
+                <a href="#" class="btn btn-default" data-toggle="modal" data-target="#videoModal" data-theVideo="https://www.youtube.com/embed/R4EZQkNvXu0">
+                    <h4 class="text-left"><span class="glyphicon glyphicon-unchecked" aria-hidden="true" id="check_vidNettiquette"/></h4>
+                    <img src="img/vidpic_Nettiquette-square200.png" class="img-responsive vcenter vidpic"
+                         alt="Student Signer Tasks">
+                    <h2>Behaving Online</h2>
+                </a>
+                <br /><br /><span class="text-muted text-center">Learn how to behave online.</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!--<a href="#" class="btn btn-default" data-toggle="modal" data-target="#videoModal" data-theVideo="https://www.youtube.com/embed/EvhIdB_8WXE">Anti-Bullying</a>-->
+    <!--<a href="#" class="btn btn-default" data-toggle="modal" data-target="#videoModal" data-theVideo="https://www.youtube.com/embed/P4tKS1tpNWc">Internet Safety</a>-->
+    <!--<a href="#" class="btn btn-default" data-toggle="modal" data-target="#videoModal" data-theVideo="https://www.youtube.com/embed/R4EZQkNvXu0">Behaving Online</a>-->
+
+
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div>
+                        <iframe width="100%" height="350" src=""></iframe>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="btn_VideoAccept" data-dismiss="modal">Accept
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal - Internet Usage Policy -->
+    <div class="modal fade" id="modal_TermsOfAcceptance" tabindex="-1" role="dialog" aria-labelledby="label_TOA"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="label_TOA">Terms of Acceptance</h3>
+                </div>
+                <div class="modal-body">
+                    TERMS OF ACCEPTANCE, CONSENT, AND NOTICE REGARDING ELECTRONIC COMMUNICATIONS & ELECTRONIC SIGNATURES
+                    <h4>Electronic Communication</h4>
+
+                    <p>The term
+                        <mark>Electronic Communications</mark>
+                        (hereafter referred to as <abbr title="Electronic Communications">E-Communications</abbr>)
+                        includes, but is not limited to, any and all current and future email notices and/or disclosures
+                        that various federal and/or state laws or regulations require that the school district provide
+                        to you, as well as other documents, statements, data, records and any other communications
+                        regarding awareness and consent. It is at the sole discretion of the District what
+                        E-Communications are made available to you through iComply.org.
+                    </p>
+                    <p>By selecting the <kbd>Accept</kbd> button on this and any other E-Communication throughout the
+                        2015/2016 school year, you agree your Electronic Signature (hereafter referred to as <abbr
+                                title="Electronic Signature">E-Signature</abbr>), is the legal equivalent of your manual
+                        signature. By selecting <kbd>Accept</kbd> you consent to be legally bound by this
+                        E-Communication and E-Signature Agreement's terms and conditions. You further agree that your
+                        use of a key pad, mouse or other device to select an item, button, icon or similar act/action,
+                        or in accessing or making any transaction regarding any agreement, acknowledgement, consent
+                        terms, disclosures or conditions constitutes your signature acceptance and agreement as if
+                        actually signed by you in writing.</p>
+
+                    <p>All E-Communications will be saved in your account for 12 years from the date of your E-Signature
+                        and the date of the E-Signature of the students within your account. You are able to retain
+                        E-Communications by printing and/or downloading and saving this Agreement and any other
+                        agreements and E-Communications, documents, or records that you agree to using your E-Signature
+                        and those of the students in the same account. You accept E-Communications provided via
+                        iComply.org on behalf of the District as reasonable and proper notice, for the purpose of any
+                        and all laws, rules, and regulations, and agree that such electronic form fully satisfies any
+                        requirement that such communications be provided to you in writing or in a form that you may
+                        keep.</p>
+                    <h4>Authorized Signer Agreement</h4>
+
+                    <p>You represent that you are the parent or legal guardian (hereafter referred to as <abbr
+                            title="Someone with legal authority to sign on behalf of a student (e.g. Parent or Legal Guardian).">Authorized
+                        Signer</abbr> for the students represented below for the 2015/2016 school year. You also agree
+                        that no certification authority or other third party verification is necessary to validate your
+                        identity as Authorized Signer and that the lack of such certification or third party
+                        verification will not in any way affect the enforceability of your E-Signature.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="btn_TermsOfService" data-dismiss="modal">Accept
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal - Internet Usage Policy -->
+    <div class="modal fade" id="modal_AcceptableUsePolicy" tabindex="-1" role="dialog"
+         aria-labelledby="label_AcceptableUsePolicy" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="label_AcceptableUsePolicy">Acceptable Use Policy</h4>
+                </div>
+                <div class="modal-body">
+                    <iframe src="pdfs/Clinton Comm Unit School Dis 15 - Internet Safety & Acceptable Use Policy.pdf"
+                            width="100%" height="100%"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="btn_AcceptableUsePolicy" data-dismiss="modal">
+                        Accept
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal - Internet Usage Policy -->
+    <div class="modal fade" id="modal_InternetUsage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Internet Use Policy</h4>
+                </div>
+                <div class="modal-body">
+                    <iframe src="pdfs/Clinton Comm Unit School Dis 15 - Internet Safety & Acceptable Use Policy.pdf"
+                            width="100%" height="100%"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="btn_InternetUsePolicy" data-dismiss="modal">
+                        Accept
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal - School Handbook -->
+    <div class="modal fade" id="modal_SchoolHandbook" tabindex="-1" role="dialog" aria-labelledby="label_SchoolHandbook"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="label_SchoolHandbook">School Handbook</h4>
+                </div>
+                <div class="modal-body">
+                    <iframe src="pdfs/2014-2015 Lincoln Elementary Student Handbook.pdf" width="100%" height="100%"
+                            id="if_SchoolHandbook"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="btn_SchoolHandbook" data-dismiss="modal">Accept
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal - Congratulations Page -->
+    <div class="modal fade" id="modal_Congratulations" tabindex="-1" role="dialog"
+         aria-labelledby="label_SchoolHandbook" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="label_Congratulations">Congratulations</h4>
+                </div>
+                <div class="modal-body">
+                    <h2 class="text-center">Congratulat<span class="congrats">i</span>ons!</h2>
+
+                    <p>You have successfully activated your account and completed Your Tasks as the Authorized Signer. A
+                        confirmation has been sent to your email.</p>
+
+                    <p>The next step is to have all your students complete their tasks.</p>
+
+                    <h3 class="congrats">Next steps</h3>
+                    <ol>
+                        <li>All students have three days to complete their Student Tasks.</li>
+                        <li>They need to log into the same account using your email address and the password.</li>
+                        <li>Once in the account they will take the (ICON HERE) Student path and enter their student
+                            id.
+                        </li>
+                        <li>Then they will have 3 days to complete their assigned Tasks.</li>
+                    </ol>
+
+                    <h3 class="congrats">$9.95 Internet Access</h3>
+
+                    <p>With <a class="btn btn-primary btn-xs" href="http://cox.connect2compete.org/welcome.aspx"
+                               aria-expanded="false" aria-controls="collapseExample">
+                        Cox Connect2Compete
+                    </a>, if your student(s) participate in the Free and Reduced Lunch Program, your household is
+                        eligible for $9.95 a month Home Internet Access. No Deposit, No Credit Check & Free
+                        Installation!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="btn_CongratsNext" data-dismiss="modal">Next
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <p class="pull-right text-muted">&copy; iComplyK12.org 2015</p>
+    </footer>
+
+</div>
+<!-- /container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="dist/js/ie10-viewport-bug-workaround.js"></script>
+
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        autoPlayYouTubeModal();
+
+        //FUNCTION TO GET AND AUTO PLAY YOUTUBE VIDEO FROM DATATAG
+        function autoPlayYouTubeModal() {
+            var trigger = $("body").find('[data-target="#videoModal"]');
+            trigger.click(function () {
+                var videoSRC = $(this).attr("data-theVideo") + "?autoplay=1";
+                $('#videoModal iframe').attr('src', videoSRCauto);
+
+
+//                $(theModal).on('hidden.bs.modal', function (e) {
+//                    $(theModal + ' iframe').attr('src', videoSRC);
+//                });
+            });
+        }
+
+        $(".check-popover").popover({
+            html: true,
+            placement: "right",
+            container: "body",
+            trigger: "manual",
+            content: function () {
+                return $(this).data("popover");
+            }
+        });
+
+        $('.modal').on('hidden.bs.modal', function (e) {
+            //Clean up the reusable modal
+            $(this).find('iframe').attr('src', "");
+
+            $(".check-popover").popover("show");
+
+            if (0 === $(".glyphicon-unchecked").length) {
+                setTimeout(function () {
+                    $('#modal_Congratulations').modal('show');
+                }, 2000)
+            }
+
+        });
+
+        $('.modal').on('show.bs.modal', function (e) {
+            $(".check-popover").popover("hide");
+        });
+
+        function taskCompleted(checkboxId, taskbuttonId) {
+            $(checkboxId).removeClass('glyphicon-unchecked');
+            $(checkboxId).addClass('glyphicon-check');
+
+            if ($(taskbuttonId).data("popover") == '') {
+                var datetime = (new Date()).toLocaleString();
+                $(taskbuttonId).data("popover", ' <small><em>signed ' + datetime + '</em></small>');
+                totalDone++;
+            }
+
+
+        }
+
+        $("#btn_TermsOfService").click(function () {
+            taskCompleted('#check_TermsOfAcceptance', '#tskbtn_TermsOfAcceptance');
+        });
+
+        $('#btn_AcceptableUsePolicy').on('click', function (e) {
+            taskCompleted('#check_AcceptableUsePolicy', '#tskbtn_AcceptableUsePolicy');
+        });
+
+        $('#btn_InternetUsePolicy').on('click', function (e) {
+            taskCompleted('#check_InternetUsePolicy', '#tskbtn_InternetUsePolicy');
+        });
+
+        $('#btn_SchoolHandbook').on('click', function (e) {
+            taskCompleted('#check_SchoolHandbook', '#tskbtn_SchoolHandbook');
+        });
+
+
+
+    });
+</script>
+
+</body>
+</html>
